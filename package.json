@@ -1,0 +1,23 @@
+{
+  "name": "informalessay",
+  "version": "1.0.0",
+  "description": "infomalessay",
+  "main": "index.js",
+  "dependencies": {
+    "thenjs": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liting95/informalEssay.git"
+  },
+  "author": "lt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liting95/informalEssay/issues"
+  },
+  "homepage": "https://github.com/liting95/informalEssay#readme"
+}

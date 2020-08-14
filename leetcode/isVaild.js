@@ -44,7 +44,7 @@ const isVaild2 = function(s) {
 };
 // && 时间：92ms 内存：38.4MB
 // || 时间：96ms 内存：38.2MB
-const isVaild = function(s) {
+const isVaild3 = function(s) {
     if (s.length % 2 !== 0) return false;
     // map key是右括号，value是左括号
     // 在下面的判断中可以确保list中存放的都是左括号，
@@ -74,5 +74,39 @@ const isVaild = function(s) {
     }
     return list.length === 0;
 };
+// 时间：80ms 内存：38.4MB
+// 字符串可以直接for of， 不用变成数组
+const isVaild = function(s) {
+    if (s.length % 2 !== 0) return false;
+    // map key是右括号，value是左括号
+    // 在下面的判断中可以确保list中存放的都是左括号，
+    // 循环到右括号的时候进行判断
+    const map = new Map([
+        [')', '('],
+        [']', '['],
+        ['}', '{']
+    ]);
+    let list = [];
+    for(const e of s) {
+        if (map.has(e)) {
+            if (list.length === 0 || map.get(e) !== list[list.length - 1]) {
+                return false;
+            }
+            list.pop();
+            // if (list.length != 0 && map.get(e) === list[list.length-1]) {
+            //     list.pop();
+            // } else {
+            //     return false;
+            // }
+        } else {
+            list.push(e);
+        }
+    }
+    return list.length === 0;
+};
 console.log(isVaild(')(){({}{})()'));
 // console.log(isVaild('{()([]])}'));
+
+for(const e of '1234') {
+    console.log(e)
+}
